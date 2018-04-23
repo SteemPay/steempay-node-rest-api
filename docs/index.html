@@ -1,0 +1,129 @@
+<html>
+<head>
+</head>
+
+<body>
+  <h1>SteemPay NodeJS REST API Documentaion</h1>
+  <h2>Public API Methods</h2>
+  <br>
+  <h3>Get user info</h3>
+  <ul>
+    <li>
+      <h4>Endpoint</h4>
+      <p>
+        <code>https://host.com/username</code>
+      </p>
+      <h4>Example:</h4>
+      <p>
+        <code>https://api.steempay.org/kodaxx</code>
+      </p>
+    </li>
+    <li>
+      <h4 id="response">Response</h4>
+      <pre>
+        <code>
+{
+  "balance_sbd": "15.492 SBD",
+  "balance_steem": "2.348 STEEM"</span>,
+  "avatar": "https://avatars3.githubusercontent.com/u/6633675?v=3&amp;s=460",
+  "location": "Wyoming, USA"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+  <p>If a property does not exist on a user, it&#39;s key will have a value of <code>null</code></p>
+  <p>If a user doesn&#39;t exist, you will recieve back a response of <code>false</code></p>
+  <br>
+  <h3>Get user public keys</h3>
+  <ul>
+    <li>
+      <h4>Endpoint</h4>
+      <p>
+        <code>https://host.com/username/pub</code>
+      </p>
+      <h4>Example:</h4>
+      <p>
+        <code>https://api.steempay.org/kodaxx/pub</code>
+      </p>
+    </li>
+    <li>
+      <h4 id="response">Response</h4>
+      <pre>
+        <code>
+{
+  "active_pub": "STM5EmQF3UiwQ8tvMe5WbeWuYaVzRZSqf1RPwxdzGteJumbVWTKwG",
+  "owner_pub": "STM6ApiGTJahPTK6DDxYisJ3ZRBqXdj8xN8CvAgHki571pYZTG2gu",
+  "memo_pub": "STM7zufmp2UqpmUQmKHwXn5zcRjPLSW8jRpyoQCV2rPAmMkLh8r1n"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+  <p>This endpoint is useful for verifying that the private keys generated client-side are correct.</p>
+  <br>
+  <h3>Get user transfer history</h3>
+  <ul>
+    <li>
+      <h4>Endpoint</h4>
+      <p>
+        <code>https://host.com/username/history</code>
+        <code>https://host.com/username/history/limit</code>
+      </p>
+      <h4>Example:</h4>
+      <p>
+        <code>https://api.steempay.org/kodaxx/history/1000</code>
+      </p>
+    </li>
+    <li>
+      <h4>Response</h4>
+      <pre>
+        <code>
+[
+  {
+    "tx_id": "dcb389fa0acd27b8f22dc9aecd98536578033db9",
+    "timestamp": "2018-04-22T18:29:54",
+    "details": {
+      "from": "cptnduras",
+      "to": "kodaxx",
+      "amount": "0.001 SBD",
+      "memo": "test memo"
+    }
+  }
+]
+        </code>
+      </pre>
+    </li>
+  </ul>
+  <p>This endpoint returns an array of objects, each object being a transfer - most recent transfer is first.</p>
+  <p>The <code>limit</code> parameter is optional (default will be 30) and upper limit is 10,000.</p>
+  <br>
+  <h3>Get exchange rates</h3>
+  <ul>
+    <li>
+      <h4>Endpoint</h4>
+      <p>
+        <code>https://host.com/rates/token</code>
+      </p>
+      <h4>Example:</h4>
+      <p>
+        <code>https://api.steempay.org/rates/steem</code>
+        <code>https://api.steempay.org/rates/steem-dollar</code>
+      </p>
+    </li>
+    <li>
+      <h4>Response</h4>
+      <pre>
+        <code>
+{
+  "price_usd": "3.27341"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+  <p>Theoretically, you can get any USD price from coinmarketcap with this endpoint, but this will be useful
+    to calculate USD account values</p>
+</body>
+
+</html>
