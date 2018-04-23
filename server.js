@@ -4,6 +4,9 @@ const steem = require('steem');
 const coinmarketcap = require('coinmarketcap-api')
 const cmc = new coinmarketcap()
 
+//set steem api server
+steem.api.setOptions({url: 'https://api.steemit.com'});
+
 //prettify json
 app.set('json spaces', 2)
 
