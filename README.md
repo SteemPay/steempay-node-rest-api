@@ -1,5 +1,12 @@
 # SteemPay NodeJS REST API Documentaion
 
+## Installation
+
+`git clone https://github.com/SteemPay/steempay-node-rest-api.git steempay-api`
+`cd steempay-api`
+`npm install`
+`npm run start`
+
 ## Public API Methods
 
 ### Get user info
@@ -10,7 +17,7 @@
     `https://api.steempay.org/kodaxx`
 
 - #### Response
-    ```
+    ```js
     {
       "balance_sbd": "15.492 SBD",
       "balance_steem": "2.348 STEEM",
@@ -31,7 +38,7 @@ If a user doesn't exist, you will recieve back a response of `false`
     `https://api.steempay.org/kodaxx/pub`
 
 - #### Response
-    ```
+    ```js
     {
       "active_pub": "STM5EmQF3UiwQ8tvMe5WbeWuYaVzRZSqf1RPwxdzGteJumbVWTKwG",
       "owner_pub": "STM6ApiGTJahPTK6DDxYisJ3ZRBqXdj8xN8CvAgHki571pYZTG2gu",
@@ -50,7 +57,7 @@ This endpoint is useful for verifying that the private keys generated client-sid
     `https://api.steempay.org/kodaxx/history/1000`
 
 - #### Response
-    ```
+    ```js
     [
       {
         "tx_id": "dcb389fa0acd27b8f22dc9aecd98536578033db9",
@@ -77,7 +84,7 @@ The `limit` parameter is optional (default will be 30) and upper limit is 10,000
     `https://api.steempay.org/rates/steem-dollar`
 
 - #### Response
-    ```
+    ```js
     {
       "price_usd": "3.27341"
     }
