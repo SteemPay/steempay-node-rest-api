@@ -2,9 +2,16 @@
 
 ## Installation
 
+Clone repo
 `git clone https://github.com/SteemPay/steempay-node-rest-api.git steempay-api`
+
+Change into directory
 `cd steempay-api`
+
+Install NPM packages
 `npm install`
+
+Start server
 `npm run start`
 
 ## Public API Methods
