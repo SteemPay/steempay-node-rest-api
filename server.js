@@ -28,11 +28,16 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use('/static', express.static(__dirname + '/public'));
+
 //docs at '/'
 app.get('/', function(req, res) {
-  res.sendFile('docs/index.html', {
-    root: __dirname
-  });
+  res.sendFile(__dirname + '/public/docs/index.html');
+});
+
+//payment page
+app.get('/payment', function(req, res) {
+  res.sendFile(__dirname + '/public/views/payment.html');
 });
 
 //get user
